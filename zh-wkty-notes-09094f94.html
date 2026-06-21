@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>悟空体育 · 资料索引与信息概览</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Noto Sans SC', sans-serif;
+    }
+
+    body {
+      background: #f4f6f9;
+      color: #1e2a3a;
+      line-height: 1.7;
+    }
+
+    /* 深色头图 */
+    .hero {
+      background: linear-gradient(145deg, #121e2d 0%, #1f2c3e 100%);
+      padding: 4rem 1.5rem 3.5rem;
+      text-align: center;
+      color: #e6edf5;
+      border-bottom: 4px solid #f5b342;
+    }
+
+    .hero h1 {
+      font-size: 2.8rem;
+      font-weight: 500;
+      letter-spacing: 2px;
+      margin-bottom: 0.5rem;
+    }
+
+    .hero .sub {
+      font-size: 1.1rem;
+      opacity: 0.75;
+      margin-top: 0.3rem;
+      font-weight: 300;
+    }
+
+    .hero .badge {
+      display: inline-block;
+      background: #f5b342;
+      color: #121e2d;
+      padding: 0.2rem 1rem;
+      border-radius: 30px;
+      font-size: 0.8rem;
+      font-weight: 600;
+      margin-top: 0.8rem;
+      letter-spacing: 0.3px;
+    }
+
+    /* 主容器：目录感布局 */
+    .container {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 2rem 1.5rem 4rem;
+    }
+
+    /* 目录格栅 —— 类似资料索引卡片 */
+    .grid-index {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 1.8rem;
+      margin: 2.5rem 0 3rem;
+    }
+
+    .card {
+      background: #ffffff;
+      border-radius: 18px;
+      padding: 1.8rem 1.5rem;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.03), 0 2px 6px rgba(18, 30, 45, 0.06);
+      transition: transform 0.2s, box-shadow 0.2s;
+      border-left: 5px solid transparent;
+    }
+
+    .card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 12px 28px rgba(0, 0, 0, 0.06);
+    }
+
+    .card:nth-child(1) { border-left-color: #3b82f6; }
+    .card:nth-child(2) { border-left-color: #10b981; }
+    .card:nth-child(3) { border-left-color: #f59e0b; }
+    .card:nth-child(4) { border-left-color: #8b5cf6; }
+
+    .card h3 {
+      font-size: 1.3rem;
+      font-weight: 600;
+      margin-bottom: 0.6rem;
+      color: #1f2c3e;
+    }
+
+    .card p {
+      font-size: 0.95rem;
+      color: #3b4a5a;
+      margin-bottom: 0.4rem;
+    }
+
+    .card .meta {
+      color: #6b7a8a;
+      font-size: 0.85rem;
+      margin-top: 0.6rem;
+      border-top: 1px solid #eef1f5;
+      padding-top: 0.5rem;
+    }
+
+    /* 说明区、提示区、相关信息区 —— 用分割线区分 */
+    .info-section {
+      background: #ffffff;
+      border-radius: 20px;
+      padding: 2rem 2rem 1.8rem;
+      margin: 2rem 0;
+      box-shadow: 0 2px 12px rgba(0, 0, 0, 0.02);
+    }
+
+    .info-section p {
+      margin-bottom: 0.8rem;
+    }
+
+    .section-label {
+      display: inline-block;
+      font-size: 0.75rem;
+      font-weight: 600;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      color: #6b7a8a;
+      border-bottom: 2px solid #f5b342;
+      padding-bottom: 0.2rem;
+      margin-bottom: 1rem;
+    }
+
+    .tip-box {
+      background: #f0f5fd;
+      border-radius: 16px;
+      padding: 1.4rem 1.8rem;
+      margin: 1.8rem 0;
+      border-left: 4px solid #f5b342;
+    }
+
+    .tip-box p {
+      margin: 0;
+      font-size: 0.95rem;
+    }
+
+    .faq-summary {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1rem;
+      margin: 1.5rem 0;
+    }
+
+    @media (max-width: 640px) {
+      .faq-summary {
+        grid-template-columns: 1fr;
+      }
+      .hero h1 {
+        font-size: 2rem;
+      }
+    }
+
+    .faq-item {
+      background: #f9fafc;
+      border-radius: 14px;
+      padding: 1rem 1.2rem;
+    }
+
+    .faq-item strong {
+      display: block;
+      font-weight: 600;
+      color: #1e2a3a;
+      margin-bottom: 0.2rem;
+      font-size: 0.95rem;
+    }
+
+    .faq-item span {
+      font-size: 0.9rem;
+      color: #3b4a5a;
+    }
+
+    /* 强调色用于链接 */
+    a {
+      color: #2563eb;
+      text-decoration: none;
+      border-bottom: 1px dotted rgba(37, 99, 235, 0.3);
+      transition: border 0.2s, color 0.2s;
+    }
+
+    a:hover {
+      color: #1d4ed8;
+      border-bottom: 1px solid #1d4ed8;
+    }
+
+    .link-inline {
+      color: #2563eb;
+    }
+
+    .footnote {
+      margin-top: 3rem;
+      font-size: 0.85rem;
+      color: #6b7a8a;
+      text-align: center;
+      border-top: 1px solid #dfe5ed;
+      padding-top: 1.8rem;
+    }
+
+    hr {
+      border: none;
+      border-top: 1px solid #dfe5ed;
+      margin: 1.5rem 0;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- 深色头图 -->
+  <header class="hero">
+    <h1>悟空体育</h1>
+    <div class="sub">资料索引 · 信息整理 · 知识库入口</div>
+    <span class="badge">内容导航</span>
+  </header>
+
+  <main class="container">
+
+    <!-- 目录感布局：卡片式索引 -->
+    <div class="grid-index">
+      <div class="card">
+        <h3>📋 资料归档</h3>
+        <p>体育新闻、赛事数据、历史记录与分类文档。</p>
+        <div class="meta">更新于 2025 · 持续整理</div>
+      </div>
+      <div class="card">
+        <h3>🔍 信息查询</h3>
+        <p>通过关键词、赛季、队伍快速定位相关内容。</p>
+        <div class="meta">支持检索与筛选</div>
+      </div>
+      <div class="card">
+        <h3>📌 常用链接</h3>
+        <p>内部参考、外部验证、官方信息来源汇总。</p>
+        <div class="meta">定期校验可用性</div>
+      </div>
+      <div class="card">
+        <h3>🧩 主题分类</h3>
+        <p>按运动项目、联赛、专题划分资料簇。</p>
+        <div class="meta">结构可扩展</div>
+      </div>
+    </div>
+
+    <!-- 说明区：从资料整理角度切入 -->
+    <div class="info-section">
+      <div class="section-label">说明 · 索引原则</div>
+      <p>本页作为资料整理与信息索引的静态入口，聚焦于<a href="https://zh-wkty.com">悟空体育</a>相关内容的收集与归类。所有条目均来自公开可查的信息源，经人工筛选与结构化处理，以降低查阅成本。</p>
+      <p>索引库目前覆盖：赛季回顾、队伍变动、赛事规则说明、历史数据报表等几个主要板块。每个条目均标注了更新时间或版本，便于使用者判断时效性。如果你正在寻找某个具体事件的记录或统计，可以通过上方卡片分类快速定位。</p>
+      <p>需要特别说明的是，这里不提供实时比分、即时赔率或动态推送——它更像一个编排好的参考资料架，供需要系统了解或回溯的人使用。</p>
+    </div>
+
+    <!-- 提示区 -->
+    <div class="tip-box">
+      <div class="section-label" style="border-bottom-color: #f5b342;">💡 使用提示</div>
+      <p>部分外部链接指向<a href="https://zh-wkty.com">悟空体育</a>的原始页面，建议结合浏览器标签或笔记工具保存常用索引。资料会不定期复核，如发现链接失效或内容过时，欢迎通过反馈渠道告知。合理利用搜索功能可提升效率，比如直接搜索队伍名称或赛季编号。</p>
+    </div>
+
+    <!-- FAQ 摘要区（两列响应） -->
+    <div style="margin-top: 0.5rem;">
+      <div class="section-label">❓ 常见疑问 · 摘要</div>
+      <div class="faq-summary">
+        <div class="faq-item">
+          <strong>资料多久更新一次？</strong>
+          <span>主要板块每个自然月审查一次，重大赛事期间会临时增补。</span>
+        </div>
+        <div class="faq-item">
+          <strong>可以引用这里的资料吗？</strong>
+          <span>建议核对原始来源后引用，索引页仅提供整理后的路径。</span>
+        </div>
+        <div class="faq-item">
+          <strong>为什么没有实时数据？</strong>
+          <span>本页定位为静态知识库入口，实时数据建议直接使用专用工具或平台。</span>
+        </div>
+        <div class="faq-item">
+          <strong>如何反馈错误或遗漏？</strong>
+          <span>目前通过 github issue 或站点内联系方式提交，处理周期约 3~5 天。</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- 相关信息区 -->
+    <div class="info-section" style="margin-top: 1.8rem;">
+      <div class="section-label">相关信息 · 周边参考</div>
+      <p>除核心索引外，以下内容也可能对你有帮助：赛事百科词条、体育术语对照表、历年成绩总览（PDF 归档）。部分资料以外部文档形式托管，可通过<a href="https://zh-wkty.com">悟空体育</a>的导航栏进入对应模块。建议搭配浏览器书签栏建立自己的快速访问集。</p>
+      <p style="margin-bottom: 0;">如果你希望进一步了解资料整理的方法或数据筛选标准，可以参考项目文档中的“收录准则”章节。索引库的目录结构也在持续优化中，以提升跨类别查找的体验。</p>
+    </div>
+
+    <hr>
+
+    <div class="footnote">
+      悟空体育 · 索引页 &nbsp;|&nbsp; 内容仅供参考，不构成任何建议 &nbsp;|&nbsp; 版本 1.7
+    </div>
+
+  </main>
+
+</body>
+</html>
