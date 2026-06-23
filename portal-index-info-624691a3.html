@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>开云 · 简明指南与访问提醒</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Noto Sans SC', sans-serif;
+      background: #f2f4f7;
+      color: #2c3e4f;
+      line-height: 1.7;
+    }
+    .page {
+      max-width: 860px;
+      margin: 0 auto;
+      padding: 2rem 1.5rem 3rem;
+    }
+
+    /* hero */
+    .hero {
+      background: #ffffff;
+      border-radius: 28px;
+      padding: 2.8rem 2rem;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.02), 0 1px 3px rgba(0,0,0,0.04);
+      border: 1px solid #e6eaf0;
+      text-align: center;
+      margin-bottom: 2rem;
+    }
+    .hero h1 {
+      font-size: 2.2rem;
+      font-weight: 500;
+      letter-spacing: 0.02em;
+      color: #1c2a38;
+    }
+    .hero h1 span {
+      display: inline-block;
+      background: #ebeff5;
+      padding: 0 0.6rem;
+      border-radius: 40px;
+      font-weight: 500;
+      color: #1f3a4b;
+    }
+    .hero p {
+      margin-top: 1rem;
+      font-size: 1.1rem;
+      color: #4a5b6b;
+      max-width: 650px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    /* 卡片通用 */
+    .card {
+      background: #ffffff;
+      border-radius: 20px;
+      padding: 1.8rem 2rem;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.02), 0 1px 2px rgba(0,0,0,0.03);
+      border: 1px solid #e2e7ee;
+      margin-bottom: 1.8rem;
+      transition: box-shadow 0.15s;
+    }
+    .card:hover {
+      box-shadow: 0 6px 16px rgba(0,0,0,0.04);
+    }
+    .card h2 {
+      font-size: 1.4rem;
+      font-weight: 500;
+      color: #1f3446;
+      margin-bottom: 0.8rem;
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+    }
+    .card h2 i {
+      font-style: normal;
+      background: #e9eef5;
+      border-radius: 100px;
+      padding: 0 0.6rem;
+      font-size: 0.9rem;
+      color: #2b4b61;
+    }
+    .card p, .card li {
+      color: #3d5366;
+    }
+    .card ul {
+      padding-left: 1.4rem;
+      margin-top: 0.3rem;
+    }
+    .card li {
+      margin-bottom: 0.4rem;
+    }
+
+    /* 优势区 —— 三列网格 */
+    .grid-3 {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.2rem;
+      margin-bottom: 1.8rem;
+    }
+    .grid-item {
+      background: #ffffff;
+      border-radius: 20px;
+      padding: 1.6rem 1.2rem;
+      border: 1px solid #e2e7ee;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.02);
+    }
+    .grid-item h3 {
+      font-size: 1.1rem;
+      font-weight: 500;
+      color: #1f3446;
+      margin-bottom: 0.5rem;
+    }
+    .grid-item p {
+      font-size: 0.95rem;
+      color: #4a5b6b;
+    }
+
+    /* 说明区 (内联链接) */
+    .inline-link {
+      color: #2b6f94;
+      text-decoration: none;
+      border-bottom: 1px solid #cbd7e6;
+      transition: border-color 0.2s, color 0.2s;
+    }
+    .inline-link:hover {
+      border-bottom-color: #2b6f94;
+      color: #144d6b;
+    }
+
+    /* FAQ摘要 */
+    .faq-item {
+      margin-bottom: 0.9rem;
+    }
+    .faq-item strong {
+      display: block;
+      font-weight: 500;
+      color: #1f3446;
+      margin-bottom: 0.1rem;
+    }
+    .faq-item p {
+      margin-left: 0.2rem;
+    }
+
+    hr {
+      border: none;
+      border-top: 1px solid #dce2eb;
+      margin: 1.2rem 0 1rem;
+    }
+
+    /* 底部链接 */
+    .footer-links {
+      background: #ffffff;
+      border-radius: 20px;
+      padding: 1.3rem 2rem;
+      border: 1px solid #e2e7ee;
+      text-align: center;
+      font-size: 0.95rem;
+      color: #4a5b6b;
+    }
+    .footer-links a {
+      color: #2b6f94;
+      text-decoration: none;
+      border-bottom: 1px solid #cbd7e6;
+      margin: 0 0.3rem;
+    }
+    .footer-links a:hover {
+      border-bottom-color: #2b6f94;
+    }
+
+    /* 响应式 */
+    @media (max-width: 640px) {
+      .page { padding: 1.2rem 1rem 2rem; }
+      .hero { padding: 2rem 1.2rem; }
+      .hero h1 { font-size: 1.8rem; }
+      .card { padding: 1.4rem 1.2rem; }
+      .grid-3 { grid-template-columns: 1fr; gap: 1rem; }
+      .grid-item { padding: 1.2rem 1rem; }
+    }
+  </style>
+</head>
+<body>
+<div class="page">
+
+  <!-- hero 区 -->
+  <div class="hero">
+    <h1>简明指南 · <span>开云</span></h1>
+    <p>一个关于访问、习惯与信息筛选的轻提醒 —— 希望你在使用网络服务时，保持清晰的方向感与判断力。</p>
+  </div>
+
+  <!-- 优势区：三卡片 -->
+  <div class="grid-3">
+    <div class="grid-item">
+      <h3>🧭 方向清楚</h3>
+      <p>每次访问前，先确认目标是否精准。我们提供一些轻量的筛选思路，帮助你更快找到所需。</p>
+    </div>
+    <div class="grid-item">
+      <h3>📋 轻提醒</h3>
+      <p>日常浏览中容易忽略的细节：是否留意了页面来源、协议前缀、隐私说明？提醒虽小，但有用。</p>
+    </div>
+    <div class="grid-item">
+      <h3>🔐 访问习惯</h3>
+      <p>使用安全网络、定期清理缓存、留意通知权限——这些习惯能让你在浏览时更安心。</p>
+    </div>
+  </div>
+
+  <!-- 说明区 + 嵌入链接 -->
+  <div class="card">
+    <h2>说明 · 关于 <i>开云</i></h2>
+    <p>这里并非一份官方文档，而是一个从日常使用角度整理的摘要页面。如果你希望直接访问服务，可以通过 <a href="https://portal-index-ky.com" class="inline-link">开云</a> 进入对应页面。请留意，任何网络服务都会因地区、政策与版本更新而发生变化，建议你以实际页面展示为准。</p>
+    <p style="margin-top: 0.8rem;">同时，我们建议你收藏对自己有帮助的页面，并定期检查链接是否有效。保持独立判断，比任何快捷方式都更重要。</p>
+  </div>
+
+  <!-- FAQ 摘要 -->
+  <div class="card">
+    <h2>常见疑问摘要</h2>
+    <div class="faq-item">
+      <strong>Q：什么是“开云”的定位？</strong>
+      <p>它主要提供信息索引与导航功能，并非内容生产或社交平台。使用时需要注意其更新节奏与自身需求是否匹配。</p>
+    </div>
+    <div class="faq-item">
+      <strong>Q：访问时有哪些注意事项？</strong>
+      <p>建议使用主流浏览器，并保持系统与安全补丁更新。部分功能可能依赖 JavaScript，请勿轻易关闭。</p>
+    </div>
+    <div class="faq-item">
+      <strong>Q：信息可信度如何？</strong>
+      <p>任何索引类页面都建议交叉验证。尤其涉及个人信息或资金操作时，请多方核实来源。</p>
+    </div>
+    <div class="faq-item">
+      <strong>Q：是否有移动端适配？</strong>
+      <p>大部分页面采用响应式设计，但在小屏幕设备上某些交互可能有所简化，推荐在平板或电脑上获得更完整体验。</p>
+    </div>
+    <hr>
+    <p style="font-size: 0.95rem; color: #5a6f7f;">以上摘要仅为通用提示，不构成具体建议。如有疑问，请以实际服务页面为准。</p>
+  </div>
+
+  <!-- 底部链接 -->
+  <div class="footer-links">
+    <span>🔗 相关资源 ·</span>
+    <a href="https://portal-index-ky.com">开云</a>
+    <span style="margin: 0 0.2rem; color: #bcc9d8;">/</span>
+    <a href="#" style="pointer-events: none; opacity: 0.6;">使用须知</a>
+    <span style="margin: 0 0.2rem; color: #bcc9d8;">/</span>
+    <a href="#" style="pointer-events: none; opacity: 0.6;">联系与反馈</a>
+    <p style="margin-top: 0.6rem; font-size: 0.85rem; color: #7b8b9c;">本页面仅作信息展示，不存储用户数据，不设跟踪器。</p>
+  </div>
+
+</div>
+</body>
+</html>
